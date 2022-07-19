@@ -47,4 +47,23 @@ func main() {
 	fmt.Println(5 << 1)
 	// >> 二进制右移
 	fmt.Println(5 >> 1)
+
+	var m = int8(1)  //只能存8位
+	fmt.Println(m << 10)
+
+	// 赋值运算符,用来给变量赋值
+	var x int
+	x = 10
+	x += 1 // x=x+1
+	x -= 1 // x=x-1
+	x *= 2 // x = x *2
+	x /= 2 // x=x/2
+	x %= 2 // x=x%2
+
+	x<<=2
+	x>>=2
+	x|=3
+	x&=4
+	x^=4
+	
 }
