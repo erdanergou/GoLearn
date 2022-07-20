@@ -23,4 +23,6 @@ func main(){
 	// 声明int8类型的变量
 	i4 := int8(9) // 明确指定为int8类型，否则默认为int类型
 	fmt.Printf("%T\n",i4)
+
+	
 }
