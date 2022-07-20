@@ -85,9 +85,6 @@ func main() {
 	// var s1 []int
 	// s1 = append(s1, 2)  //append会自动初始化
 
-
-	//指针
-	// Go里面的指针只能读不能改，不能修改指针变量指向的地址
 }
 
 func f1(a [3]int) {
