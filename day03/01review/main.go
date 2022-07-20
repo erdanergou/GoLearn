@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 //复习
 
 func main() {
@@ -67,15 +71,20 @@ func main() {
 	// a3 := make([]int,0,4)
 	// fmt.Println(a3 == nil)
 
-	// s1:=[]int{1,2,3}
-	// s2 := s1
-	// fmt.Println(s2)
-	// s2[1] = 100
-	// fmt.Println(s2)
-	// fmt.Println(s1)
+	s1 := []int{1, 2, 3}
+	s2 := s1
+	var s3 []int
+	s3 = make([]int, 3, 3)
+	copy(s3, s1)
+	fmt.Println(s2)
+	s2[1] = 100
+	fmt.Println(s2)
+	fmt.Println(s1)
+	fmt.Println(s3)
 
-	var s1 []int
-	s1 = append(s1, 2)
+	// var s1 []int
+	// s1 = append(s1, 2)  //append会自动初始化
+
 }
 
 func f1(a [3]int) {
