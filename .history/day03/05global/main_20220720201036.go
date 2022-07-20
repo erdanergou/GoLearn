@@ -24,9 +24,9 @@ func main() {
 	var f2 = func(x, y int) {
 		fmt.Println("123")
 	}
-	f2(1, 2)
+	f2(1,2)
 	// 如果是只调用一次的函数，还可以简写为立即执行函数
-	func(x, y int) {
+	func(){
 		fmt.Println("hello word")
-	}(1, 2) // 参数
+	}
 }

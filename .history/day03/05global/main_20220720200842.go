@@ -17,16 +17,10 @@ func f1() {
 }
 
 // 匿名函数
-// 函数内部无法定义有名函数
+var f1 = func(x,y int){
+	fmt.Println("123")
+}
 
 func main() {
 	f1()
-	var f2 = func(x, y int) {
-		fmt.Println("123")
-	}
-	f2(1, 2)
-	// 如果是只调用一次的函数，还可以简写为立即执行函数
-	func(x, y int) {
-		fmt.Println("hello word")
-	}(1, 2) // 参数
 }

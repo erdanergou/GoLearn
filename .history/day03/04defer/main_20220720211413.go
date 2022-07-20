@@ -18,13 +18,6 @@ func main() {
 	// fmt.Println(f2()) // 5
 	// fmt.Println(f3()) // 5
 	// fmt.Println(f4()) // 5
-
-	a := 1
-	b := 2
-	defer calc("1", a, calc("10", a, b))
-	a = 0
-	defer calc("2", a, calc("20", a, b))
-	b = 1
 }
 
 // go语言中函数的return不是原子操作，在底层分为两步：第一步返回值赋值，第二步RET返回
@@ -60,8 +53,5 @@ func f4() (x int) {
 	return 5 // 返回值 = x = 5
 }
 
-func calc(index string, a, b int) int {
-	ret := a + b
-	fmt.Println(index, a, b, ret)
-	return ret
-}
+
+func calc(index string,)
