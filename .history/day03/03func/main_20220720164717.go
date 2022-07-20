@@ -32,34 +32,11 @@ func main() {
 	// }
 
 	a := f5
-	b := f6
-	fmt.Printf("%T\n", a) //func()
-	fmt.Printf("%T\n", b) //func() int
-	fmt.Printf("%T\n", f2) //func(int,int) int
-
-	f7(f6)
+	fmt.Printf("%T")
 }
+
 
 // 函数类型
-func f5() {
+func f5(){
 	fmt.Println("Hello")
-}
-
-func f6() int {
-	return 10
-}
-
-// 函数也可以作为参数类型
-func f7(x func() int) {
-	ret := x()
-	fmt.Println(ret)
-}
-
-
-// 函数还可以作为返回值
-func f8(x func()int)func(int,int) int{
-	ret := func (a,b int)int  {
-		return a + b
-	}
-	return ret
 }

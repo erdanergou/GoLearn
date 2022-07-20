@@ -61,5 +61,4 @@ func f8(x func()int)func(int,int) int{
 	ret := func (a,b int)int  {
 		return a + b
 	}
-	return ret
 }

@@ -54,12 +54,3 @@ func f7(x func() int) {
 	ret := x()
 	fmt.Println(ret)
 }
-
-
-// 函数还可以作为返回值
-func f8(x func()int)func(int,int) int{
-	ret := func (a,b int)int  {
-		return a + b
-	}
-	return ret
-}
