@@ -4,7 +4,7 @@ import "fmt"
 
 //panic 和 recover
 // recover()一定要搭配defer使用
-// defer 一定要在可能引发panic的语句之前定义
+// defer 一定要在可能引发panic
 
 
 func funcA() {
