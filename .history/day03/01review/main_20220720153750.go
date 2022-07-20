@@ -113,7 +113,7 @@ func main() {
 		fmt.Println("没有该key")
 	}
 
-	delete(m1, "123") // 删除的key不存在，什么都不干
+	delete(m1,"")
 
 }
 

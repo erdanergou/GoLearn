@@ -85,36 +85,13 @@ func main() {
 	// var s1 []int
 	// s1 = append(s1, 2)  //append会自动初始化
 
+
 	//指针
 	// Go里面的指针只能读不能改，不能修改指针变量指向的地址
 
 	addr := "山东"
 	addp := &addr
-	fmt.Println(addp) //内存地址
-	fmt.Printf("%T\n", addp)
-	addrV := *addp // 根据内存地址找值
-	fmt.Println(addrV)
-
-	// map
-	//map是键值对，也是需要申请内存
-
-	var m1 map[string]int
-	fmt.Println(m1 == nil)
-	m1 = make(map[string]int, 10)
-	m1["刘翔"] = 1
-	fmt.Println(m1 == nil)
-	fmt.Println(m1["123"]) //如果key不存在返回的是value对应的零值
-
-	// 判断某个是否在map中
-	value, ok := m1["123"]
-	if ok {
-		fmt.Println(value)
-	} else {
-		fmt.Println("没有该key")
-	}
-
-	delete(m1, "123") // 删除的key不存在，什么都不干
-
+	fmt.Println()
 }
 
 func f1(a [3]int) {

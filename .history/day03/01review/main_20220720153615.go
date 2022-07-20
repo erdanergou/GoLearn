@@ -103,18 +103,10 @@ func main() {
 	m1 = make(map[string]int, 10)
 	m1["刘翔"] = 1
 	fmt.Println(m1 == nil)
-	fmt.Println(m1["123"]) //如果key不存在返回的是value对应的零值
-
+	fmt.Println(m1["123"] ) //如果key不存在返回的是
+ 
 	// 判断某个是否在map中
-	value, ok := m1["123"]
-	if ok {
-		fmt.Println(value)
-	} else {
-		fmt.Println("没有该key")
-	}
-
-	delete(m1, "123") // 删除的key不存在，什么都不干
-
+	
 }
 
 func f1(a [3]int) {

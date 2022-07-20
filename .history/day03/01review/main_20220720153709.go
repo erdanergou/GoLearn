@@ -106,14 +106,10 @@ func main() {
 	fmt.Println(m1["123"]) //如果key不存在返回的是value对应的零值
 
 	// 判断某个是否在map中
-	value, ok := m1["123"]
-	if ok {
-		fmt.Println(value)
-	} else {
-		fmt.Println("没有该key")
+	value,ok := m1["123"]
+	if(ok){
+		pr
 	}
-
-	delete(m1, "123") // 删除的key不存在，什么都不干
 
 }
 
