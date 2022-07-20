@@ -1,10 +1,16 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+	"unicode"
+)
+
 func main() {
 	// 1.判断字符串中汉字的数量
 	// 难点是判断一个字符是汉字
 	// s1 := "我了个乖乖omg"
-	// num := 0
+	num := 0
 	// 1.依次获取字符
 	// for _, c := range s1 {
 	// 	// 2. 判断当前字符是否为汉字
@@ -22,16 +28,16 @@ func main() {
 	// 遍历切片存储到一个map.
 	// m1 := make(map[string]int, 10)
 	// for _, w := range s3 {
-	// 如果当前map不存在该key则初始化值为1
-	// 如果map中存在这个key，则加1
-	// if _, ok := m1[w]; !ok {
-	// m1[w] = 1
-	// } else {
-	// m1[w]++
-	// }
+		// 如果当前map不存在该key则初始化值为1
+		// 如果map中存在这个key，则加1
+		// if _, ok := m1[w]; !ok {
+			// m1[w] = 1
+		// } else {
+			// m1[w]++
+		// }
 	// }
 	// for k, v := range m1 {
-	// fmt.Println(k, v)
+		// fmt.Println(k, v)
 	// }
-
+	// hui'wen
 }
