@@ -16,8 +16,8 @@ func (a animal) move() {
 }
 
 type dog struct {
-	feet   uint8
-	animal //animal拥有的方法dog此时也会拥有
+	feet uint8
+	animal  //animal拥有的方法dog  
 }
 
 //给狗实现叫的方法

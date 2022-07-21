@@ -16,8 +16,8 @@ func (a animal) move() {
 }
 
 type dog struct {
-	feet   uint8
-	animal //animal拥有的方法dog此时也会拥有
+	feet uint8
+	animal
 }
 
 //给狗实现叫的方法
@@ -28,12 +28,12 @@ func (d dog) wang() {
 
 func main() {
 	d1 := dog{
-		animal: animal{
+		animal:animal{
 			name: "哈士奇",
 		},
-		feet: 4,
+		feet:4,
 	}
 	fmt.Println(d1)
 	d1.move()
-	d1.wang()
+	d1.
 }
