@@ -93,13 +93,9 @@ func main() {
 
 	mo := mouse{
 		animal: animal{
-			name: "金渐层",
-			age:  2,
+			name:"金渐层",
+			age:2,
 		},
-		workspace: workspace{
-			name:    "猫舍",
-			address: "1号笼",
-		},
+		
 	}
-	fmt.Println(mo.workspace.name) // 当发生匿名结构体属性名冲突时,需要写全
 }

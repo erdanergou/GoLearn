@@ -101,5 +101,4 @@ func main() {
 			address: "1号笼",
 		},
 	}
-	fmt.Println(mo.workspace.name) // 当发生匿名结构体属性名冲突时,需要写全
 }

@@ -90,16 +90,4 @@ func main() {
 		},
 	}
 	fmt.Println(f.name) // 现在自己结构体找到这个字段,找不到就去匿名嵌套的结构体中查找
-
-	mo := mouse{
-		animal: animal{
-			name: "金渐层",
-			age:  2,
-		},
-		workspace: workspace{
-			name:    "猫舍",
-			address: "1号笼",
-		},
-	}
-	fmt.Println(mo.workspace.name) // 当发生匿名结构体属性名冲突时,需要写全
 }
