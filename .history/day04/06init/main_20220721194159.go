@@ -1,0 +1,15 @@
+package main
+
+//构造函数
+type person struct{
+	name string
+	age int
+}
+
+func newPerson()person{
+	
+}
+
+func main(){
+
+}

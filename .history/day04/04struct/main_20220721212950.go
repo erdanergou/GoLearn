@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// 结构体
+// 结构体遇到的问题
 
 type person struct {
 	name   string

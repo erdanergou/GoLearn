@@ -4,8 +4,9 @@ package main
 import (
 	"fmt"
 )
+// 结构体遇到的问题
 
-// 结构体
+
 
 type person struct {
 	name   string
