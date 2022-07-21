@@ -21,15 +21,13 @@ func main() {
 	zhangsan.gender = "male"
 	zhangsan.hobby = []string{"吃", "喝"}
 	fmt.Println(zhangsan)
-	fmt.Printf("%T\n", zhangsan)
 
-	// 匿名结构体:多用于临时场景
-	var s struct {
+	// 匿名结构体
+	var s  := struct{
 		name string
-		age  int
+		age int
 	}
 	s.name = "李四"
 	s.age = 12
-	fmt.Println(s)
-	fmt.Printf("%T\n", s)
+	fmt.p
 }
