@@ -30,27 +30,39 @@ func dispatchCoin() (left int) {
 	for _, v := range users {
 		for _, w := range v {
 			switch w {
-			case 'e', 'E':
-				distribution[v] += 1
+			case 'e':
+				m[v] += 1
 				coins -= 1
-			case 'i', 'I':
-				distribution[v] += 2
+			case 'E':
+				m[v] += 1
+				coins -= 1
+			case 'i':
+				m[v] += 2
 				coins -= 2
-			case 'o', 'O':
-				distribution[v] += 3
+			case 'I':
+				m[v] += 2
+				coins -= 2
+			case 'o':
+				m[v] += 3
 				coins -= 3
-			case 'u', 'U':
-				distribution[v] += 4
+			case 'O':
+				m[v] += 3
+				coins -= 3
+			case 'u':
+				m[v] += 4
+				coins -= 4
+			case 'U':
+				m[v] += 4
 				coins -= 4
 			}
 
 		}
 	}
-	return coins
+	return m, coins
 }
 
 func main() {
-	left := dispatchCoin()
+	ever,left := dispatchCoin()
 	fmt.Println("剩下：", left)
-	fmt.Println("每人: ", distribution)
+	fmt.Println("每人: ",ever)
 }

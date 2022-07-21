@@ -33,13 +33,16 @@ func dispatchCoin() (left int) {
 			case 'e', 'E':
 				distribution[v] += 1
 				coins -= 1
-			case 'i', 'I':
+			case 'i','I':
 				distribution[v] += 2
 				coins -= 2
-			case 'o', 'O':
+			case 'o','O':
 				distribution[v] += 3
 				coins -= 3
-			case 'u', 'U':
+			case 'u':
+				distribution[v] += 4
+				coins -= 4
+			case 'U':
 				distribution[v] += 4
 				coins -= 4
 			}
