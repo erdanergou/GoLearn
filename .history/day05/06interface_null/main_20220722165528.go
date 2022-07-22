@@ -7,11 +7,6 @@ import "fmt"
 
 //interface：关键字
 //interface{} :空接口类型
-
-func show(a interface{}) {
-	fmt.Printf("type: %T,value %v\n", a, a)
-}
-
 func main() {
 	var m1 map[string]interface{}
 	m1 = make(map[string]interface{}, 16)
@@ -22,5 +17,5 @@ func main() {
 	fmt.Println(m1)
 
 	show(false)
-	show(nil)
+	show()
 }

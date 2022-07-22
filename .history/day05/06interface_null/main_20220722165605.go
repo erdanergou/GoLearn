@@ -8,9 +8,7 @@ import "fmt"
 //interface：关键字
 //interface{} :空接口类型
 
-func show(a interface{}) {
-	fmt.Printf("type: %T,value %v\n", a, a)
-}
+func show
 
 func main() {
 	var m1 map[string]interface{}
