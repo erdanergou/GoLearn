@@ -66,6 +66,10 @@ func main() {
 	fmt.Println(s)
 	fmt.Printf("%T\n", s)
 
+	s1 := s{
+		name:"1",
+		age:2,
+	}
 	println()
 	d1 := dog{
 		"金毛",
