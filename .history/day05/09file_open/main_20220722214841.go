@@ -18,13 +18,12 @@ func main() {
 
 func readFromFile1(path string) {
 	file, err := os.Open(path)
-	// defer file.Close() //不能写在此处，因为若有err出现，则file为空，无法调用close方法
 	if err != nil {
 		fmt.Printf("open file err %v\n", err)
 		return
 	}
 	//记得关闭文件
-	defer file.Close()
+	defer file.Close()  
 
 	// 读取文件
 	// var tmp = make([]byte,128) // 指定读的长度
