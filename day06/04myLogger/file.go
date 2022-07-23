@@ -34,6 +34,7 @@ func NewFileLogger(levelstr, filepath, filename string, max int64) *FileLogger {
 	return fl
 }
 
+// 初始化
 func (f *FileLogger) initFile() error {
 	fp := path.Join(f.filePath, f.fileName)
 	fileObj, err := os.OpenFile(fp, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -58,11 +59,12 @@ func (f *FileLogger) Close() {
 	f.errFileObj.Close()
 }
 
+// 判断是否需要记录该日志
 func (l *FileLogger) enable(level LogLevel) bool {
 	return l.Level <= level
 }
 
-//写入日志
+// 记录日志的方法
 func (l *FileLogger) log(lv LogLevel, msg string, arg ...interface{}) {
 	if l.enable(lv) {
 		fotmat := fmt.Sprintf(msg, arg...)
@@ -92,7 +94,7 @@ func (l *FileLogger) log(lv LogLevel, msg string, arg ...interface{}) {
 	}
 }
 
-// 检查日志大小
+// 判断日志是否需要切割
 func (f *FileLogger) checkSize(file *os.File) bool {
 	fileinfo, err := file.Stat()
 	if err != nil {

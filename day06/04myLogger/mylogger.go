@@ -20,6 +20,15 @@ const (
 
 type LogLevel uint16
 
+// logger接口
+type Logger interface {
+	Debug(msg string, arg ...interface{})
+	Info(msg string, arg ...interface{})
+	Warning(msg string, arg ...interface{})
+	Error(msg string, arg ...interface{})
+	Fatal(msg string, arg ...interface{})
+}
+
 // Logger日志结构体
 type ConsoleLogger struct {
 	Level LogLevel
