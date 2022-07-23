@@ -43,13 +43,11 @@ func reflectSetValue(x interface{}) {
 	}
 }
 
-// 函数参数传递的是值拷贝，必须传递变量地址才能修改变量值。
-// 而反射中使用专有的Elem()方法来获取指针对应的值。
 func reflectSetValue2(x interface{}) {
 	v := reflect.ValueOf(x)
 	if v.Elem().Kind() == reflect.Int64 {
-		// 反射中使用Elem()方法获取指针对应的值
-		v.Elem().SetInt(200)
+		// 反射中使用Elem
+		v.Elem().SetInt(200) 
 	}
 }
 func main() {
@@ -74,6 +72,4 @@ func main() {
 	// reflectSetValue(&b)
 	reflectSetValue2(&b)
 	fmt.Println(b)
-
-	// IsNil()常被用于判断指针是否为空；IsValid()常被用于判定返回值是否有效
 }

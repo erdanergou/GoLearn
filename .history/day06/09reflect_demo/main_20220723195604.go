@@ -52,6 +52,8 @@ func reflectSetValue2(x interface{}) {
 		v.Elem().SetInt(200)
 	}
 }
+
+
 func main() {
 
 	var a float32 = 1.234
@@ -74,6 +76,4 @@ func main() {
 	// reflectSetValue(&b)
 	reflectSetValue2(&b)
 	fmt.Println(b)
-
-	// IsNil()常被用于判断指针是否为空；IsValid()常被用于判定返回值是否有效
 }

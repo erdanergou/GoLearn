@@ -74,6 +74,4 @@ func main() {
 	// reflectSetValue(&b)
 	reflectSetValue2(&b)
 	fmt.Println(b)
-
-	// IsNil()常被用于判断指针是否为空；IsValid()常被用于判定返回值是否有效
 }
