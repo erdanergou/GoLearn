@@ -80,9 +80,6 @@ func f1() {
 		return
 	}
 	fmt.Println(ret)
-	// 时间对象相减
-	td := ret.Sub(now)
-	fmt.Println(td)
 }
 func main() {
 	// times()

@@ -1,0 +1,14 @@
+package main
+
+import (
+	"log"
+	"time"
+)
+
+func main() {
+	os/
+	for {
+		log.Println("这是一个测试的日志")
+		time.Sleep(time.Second * 3)
+	}
+}

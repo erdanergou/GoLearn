@@ -74,15 +74,12 @@ func f1() {
 		return
 	}
 	//  按照指定时区解析时间
-	ret, err := time.ParseInLocation("2006-01-02 03:04:05", "2022-07-24 09:57:20", loc)
-	if err != nil {
-		fmt.Printf("parse in location err,%v\n", err)
+	ret, err := time.ParseInLocation("2006-01-02 03:04:05", "2022-07-23 09:57:20", loc)
+	if err!=nil{
+		fmt.Printf("parse in location err,%v\n",err)
 		return
 	}
-	fmt.Println(ret)
-	// 时间对象相减
-	td := ret.Sub(now)
-	fmt.Println(td)
+	fmt.Printf()
 }
 func main() {
 	// times()

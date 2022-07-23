@@ -81,8 +81,7 @@ func f1() {
 	}
 	fmt.Println(ret)
 	// 时间对象相减
-	td := ret.Sub(now)
-	fmt.Println(td)
+	td := time
 }
 func main() {
 	// times()

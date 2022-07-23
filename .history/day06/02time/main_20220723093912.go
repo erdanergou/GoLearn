@@ -6,7 +6,8 @@ import (
 )
 
 // 时间
-func times() {
+
+func main() {
 	now := time.Now()
 	// 完整时间，eg：2022-07-23 09:10:42.4661592 +0800 CST m=+0.002036801
 	fmt.Println(now)
@@ -27,7 +28,7 @@ func times() {
 
 	// sub 求时间差值
 	later := now.Add(time.Minute)
-	fmt.Println(later.Sub(now))
+	fmt.Println(later.Sub(later))
 
 	// Equal 判断两个时间是否相同
 
@@ -49,42 +50,4 @@ func times() {
 		return
 	}
 	fmt.Println(timeobj)
-
-	// Sleep
-	n := 5
-	fmt.Println("开始睡了")
-	time.Sleep(time.Duration(n) * time.Second)
-	fmt.Println("五秒钟过去了")
-}
-
-// 时区
-func f1() {
-	now := time.Now() //本地时间
-	fmt.Println(now)
-	// 明天的这个时间
-
-	// 按照指定格式去解析一个字符串格式的时间
-	time.Parse("2006-01-02 03:04:05", "2022-07-23 09:57:20")
-	// 按照东八区的时区和格式解析一个字符串格式的时间
-
-	//根据字符串加载时区
-	loc, err := time.LoadLocation("Asia/Shanghai")
-	if err != nil {
-		fmt.Printf("load location err,%v\n", err)
-		return
-	}
-	//  按照指定时区解析时间
-	ret, err := time.ParseInLocation("2006-01-02 03:04:05", "2022-07-24 09:57:20", loc)
-	if err != nil {
-		fmt.Printf("parse in location err,%v\n", err)
-		return
-	}
-	fmt.Println(ret)
-	// 时间对象相减
-	td := ret.Sub(now)
-	fmt.Println(td)
-}
-func main() {
-	// times()
-	f1()
 }
