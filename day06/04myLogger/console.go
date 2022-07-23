@@ -7,57 +7,47 @@ import (
 
 // 往终端写日志相关内容
 
-// Logger日志结构体
-type Logger struct {
-	Level LogLevel
-}
-
 // NewLog 构造函数
-func NewLog(levelStr string) Logger {
+func NewLog(levelStr string) ConsoleLogger {
 	level, err := parseLogLevel(levelStr)
 	if err != nil {
 		panic(err)
 	}
-	return Logger{
+	return ConsoleLogger{
 		Level: level,
 	}
 }
 
-func (l Logger) enable(level LogLevel) bool {
-	return l.Level <= level
+func (c ConsoleLogger) enable(level LogLevel) bool {
+	return c.Level <= level
 }
 
-func (l Logger) Debug(msg string) {
-	if l.enable(DEBUG) {
+func (c ConsoleLogger) log(lv LogLevel, msg string, arg ...interface{}) {
+	if c.enable(lv) {
+		fotmat := fmt.Sprintf(msg, arg...)
 		now := time.Now()
-		fmt.Printf("[%s] [DEBUG] %s\n", now.Format("2006-01-02 15:04:05"), msg)
+		funcName, fileName, lineNo := getInfo(3)
+		fmt.Printf("[%s] [%s] [%s: %s: %d] %s\n", now.Format("2006-01-02 15:04:05"), getLogString(lv), funcName, fileName, lineNo, fotmat)
 	}
 }
 
-func (l Logger) Info(msg string) {
-	if l.enable(INFO) {
-		now := time.Now()
-		fmt.Printf("[%s] [Info] %s\n", now.Format("2006-01-02 15:04:05"), msg)
-	}
+func (c ConsoleLogger) Debug(msg string, arg ...interface{}) {
+
+	c.log(DEBUG, msg, arg...)
 }
 
-func (l Logger) Warning(msg string) {
-	if l.enable(WARNING) {
-		now := time.Now()
-		fmt.Printf("[%s] [Warning] %s\n", now.Format("2006-01-02 15:04:05"), msg)
-	}
+func (c ConsoleLogger) Info(msg string, arg ...interface{}) {
+	c.log(INFO, msg, arg...)
 }
 
-func (l Logger) Error(msg string) {
-	if l.enable(ERROR) {
-		now := time.Now()
-		fmt.Printf("[%s] [ERROR] %s\n", now.Format("2006-01-02 15:04:05"), msg)
-	}
+func (c ConsoleLogger) Warning(msg string, arg ...interface{}) {
+	c.log(WARNING, msg, arg...)
 }
 
-func (l Logger) Fatal(msg string) {
-	if l.enable(FATAL) {
-		now := time.Now()
-		fmt.Printf("[%s] [FATAL] %s\n", now.Format("2006-01-02 15:04:05"), msg)
-	}
+func (c ConsoleLogger) Error(msg string, arg ...interface{}) {
+	c.log(ERROR, msg, arg...)
+}
+
+func (c ConsoleLogger) Fatal(msg string, arg ...interface{}) {
+	c.log(FATAL, msg, arg...)
 }
