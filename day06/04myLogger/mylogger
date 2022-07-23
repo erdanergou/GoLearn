@@ -1,0 +1,48 @@
+package myLogger
+
+import (
+	"errors"
+	"runtime"
+	"strings"
+)
+
+const (
+	UNKNOWN LogLevel = iota
+	TARCE
+	DEBUG
+	INFO
+	WARNING
+	ERROR
+	FATAL
+)
+
+type LogLevel uint16
+
+// Logger日志结构体
+type Logger struct {
+	Level LogLevel
+}
+
+func parseLogLevel(s string) (LogLevel, error) {
+	switch strings.ToLower(s) {
+	case "debug":
+		return DEBUG, nil
+	case "tarce":
+		return TARCE, nil
+	case "info":
+		return INFO, nil
+	case "warning":
+		return WARNING, nil
+	case "error":
+		return ERROR, nil
+	case "fatal":
+		return FATAL, nil
+	default:
+		err := errors.New("日志级别无效")
+		return UNKNOWN, err
+	}
+}
+
+func getInfo(n int) {
+	pc, file, lin, ok := runtime.Caller(n)
+}
