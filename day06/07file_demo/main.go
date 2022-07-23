@@ -24,5 +24,6 @@ func main() {
 		return
 	}
 	fmt.Printf("文件大小为:%dB\n", fileInfo.Size())
+	fmt.Printf("文件名为：%s\n", fileInfo.Name())
 
 }
