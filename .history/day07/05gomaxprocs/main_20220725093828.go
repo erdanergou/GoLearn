@@ -5,7 +5,6 @@ import (
 	"runtime"
 	"sync"
 )
-
 /*
 goroutime调动模型
 	GMP：G表示goroutine，M和操纵系统线程做映射的关系，P是调度者，管理goroutine
@@ -15,6 +14,8 @@ goroutime调动模型
 	goroutine初始栈的大小是2k
 
 */
+
+
 
 // GOMAXPROCS
 var wg sync.WaitGroup
