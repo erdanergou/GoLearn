@@ -68,7 +68,7 @@ func (f *FileLogger) initFile() error {
 	// for i := 0; i < 5; i++ {
 	// 	go f.writeLogBackGround()
 	// }
-	go f.writeLogBackGround() // 开启一个goroutine执行后台写日志
+	go f.writeLogBackGround() // 开启一个goroutine
 	return nil
 }
 

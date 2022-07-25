@@ -1,6 +1,6 @@
 package main
 
-import "GoLearn/day08/myLogger"
+import "GoLearn/day08/04myLogger"
 
 
 var log myLogger.Logger  // 声明一个接口
