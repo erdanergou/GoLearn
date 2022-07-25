@@ -31,8 +31,8 @@ func main() {
 	}()
 	// 输出结果
 	go func() {
-		for x := range results {
-			fmt.Println(x)
+		for x:=range results{
+			
 		}
 	}()
 	// 开启三个goroutine

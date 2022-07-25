@@ -22,24 +22,21 @@ func main() {
 	jobs := make(chan int, 10)
 	results := make(chan int, 10)
 
-	// 五个任务
-	go func() {
-		for j := 1; j <= 5; j++ {
-			jobs <- j
-		}
-		close(jobs)
-	}()
-	// 输出结果
-	go func() {
-		for x := range results {
-			fmt.Println(x)
-		}
-	}()
 	// 开启三个goroutine
 	wg.Add(3)
 	for w := 1; w <= 3; w++ {
 		go worker(w, jobs, results)
 	}
-	wg.Wait()
-	close(results)
+	// 五个任务
+	go func(){
+		
+	}
+	for j := 1; j <= 5; j++ {
+		jobs <- j
+	}
+	close(jobs)
+	// 输出结果
+	for a := 1; a <= 5; a++ {
+		<-results
+	}
 }

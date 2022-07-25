@@ -31,8 +31,8 @@ func main() {
 	}()
 	// 输出结果
 	go func() {
-		for x := range results {
-			fmt.Println(x)
+		for a := 1; a <= 5; a++ {
+			<-results
 		}
 	}()
 	// 开启三个goroutine
@@ -41,5 +41,5 @@ func main() {
 		go worker(w, jobs, results)
 	}
 	wg.Wait()
-	close(results)
+
 }

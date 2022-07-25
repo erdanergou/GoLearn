@@ -31,9 +31,7 @@ func main() {
 	}()
 	// 输出结果
 	go func() {
-		for x := range results {
-			fmt.Println(x)
-		}
+		for 
 	}()
 	// 开启三个goroutine
 	wg.Add(3)
