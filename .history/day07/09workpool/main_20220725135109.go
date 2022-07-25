@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
-// var wg sync.WaitGroup
+var wg sync.WaitGroup
 var notifyCh = make(chan struct{}, 5)
 
 func worker(id int, jobs <-chan int, results chan<- int) {
@@ -37,16 +38,14 @@ func main() {
 		go worker(w, jobs, results)
 	}
 
+
 	go func() {
 		for i := 0; i < 5; i++ {
 			<-notifyCh
 		}
 		close(results)
 	}()
-	// 输出结果
-	for x := range results {
-		fmt.Println(x)
-	}
-	// wg.Wait()
-	// close(results)
+
+	wg.Wait()
+	close(results)
 }

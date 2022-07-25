@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
-// var wg sync.WaitGroup
+var wg sync.WaitGroup
 var notifyCh = make(chan struct{}, 5)
 
 func worker(id int, jobs <-chan int, results chan<- int) {
