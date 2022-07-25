@@ -31,7 +31,7 @@ func main() {
 			fmt.Printf("accept failed,err:%v", err)
 			return
 		}
-		go processConn(conn)
+
 	}
 
 }

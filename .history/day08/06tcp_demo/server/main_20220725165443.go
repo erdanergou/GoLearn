@@ -6,16 +6,8 @@ import (
 )
 
 // tcp  server端
-func processConn(conn net.Conn) {
-	// 3.进行通信
-	var temp [128]byte
-	n, err := conn.Read(temp[:])
-	if err != nil {
-		fmt.Printf("read  from conn failed,err:%v", err)
-		return
-	}
-	fmt.Println(string(temp[:n]))
-}
+func processCon
+
 
 func main() {
 	// 1.本地端口启动服务
@@ -31,7 +23,14 @@ func main() {
 			fmt.Printf("accept failed,err:%v", err)
 			return
 		}
-		go processConn(conn)
+		// 3.进行通信
+		var temp [128]byte
+		n, err := conn.Read(temp[:])
+		if err != nil {
+			fmt.Printf("read  from conn failed,err:%v", err)
+			return
+		}
+		fmt.Println(string(temp[:n]))
 	}
 
 }

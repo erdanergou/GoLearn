@@ -6,7 +6,7 @@ import (
 )
 
 // tcp  server端
-func processConn(conn net.Conn) {
+func processConn(conn ) {
 	// 3.进行通信
 	var temp [128]byte
 	n, err := conn.Read(temp[:])
@@ -31,7 +31,7 @@ func main() {
 			fmt.Printf("accept failed,err:%v", err)
 			return
 		}
-		go processConn(conn)
+
 	}
 
 }
