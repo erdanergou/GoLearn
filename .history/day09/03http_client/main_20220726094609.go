@@ -39,8 +39,7 @@ func main() {
 	// 	fmt.Println("get url failed ,err: ", err)
 	// 	return
 	// }
-
-	// 请求不是特别频繁,用完就关闭该连接的情况
+	
 	// 禁用KeepAlives的client,短链接
 	// tr := &http.Transport{
 	// 	DisableKeepAlives: true,
