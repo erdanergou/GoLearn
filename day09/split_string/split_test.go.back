@@ -1,0 +1,44 @@
+package split_string
+
+import (
+	// "fmt"
+	"reflect"
+	"testing"
+)
+
+/*
+
+单元测试
+go test命令是一个按照一定约定和组织的测试代码的驱动程序。
+在包目录内，所有以_test.go为后缀名的源代码文件都是go test测试的一部分，不会被go build编译到最终的可执行文件中。
+*/
+
+func TestSplit(t *testing.T) {
+	ret := Split("babcbef", "b")
+	want := []string{"", "a", "c", "ef"}
+	// fmt.Printf("%#v\n", ret)
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败
+		t.Errorf("want:%v but got :%v\n", want, ret)
+	}
+}
+
+func Test2Split(t *testing.T) {
+	ret := Split("a:b:c", ":")
+	want := []string{"a", "b", "c"}
+	// fmt.Printf("%#v\n", ret)
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败
+		t.Errorf("want:%v but got :%v\n", want, ret)
+	}
+}
+
+func Test3Split(t *testing.T) {
+	ret := Split("abcef", "bc")
+	want := []string{"a", "ef"}
+	// fmt.Printf("%#v\n", ret)
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败
+		t.Errorf("want:%v but got :%v\n", want, ret)
+	}
+}
