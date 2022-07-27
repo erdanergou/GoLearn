@@ -90,12 +90,29 @@ func main() {
 		// 表单取单个文件
 		file, _ := ctx.FormFile("file")
 		// 表单取多个文件
-		// ctx.MultipartForm()
+
 		log.Println(file.Filename)
 		// 传到项目根目录
 		ctx.SaveUploadedFile(file, file.Filename)
 		// 打印信息
 		ctx.String(200, fmt.Sprintf("%s upload!", file.Filename))
+	})
+
+	eng.POST("/test/uploadMultiFile", func(ctx *gin.Context) {
+		// 表单取多个文件
+		from, err := ctx.MultipartForm()
+		if err != nil {
+			ctx.String(http.StatusBadRequest, fmt.Sprintf("get err %s", err.Error()))
+		}
+		// 获取所有图片
+		files := from.File["files"]
+		for _, file := range files {
+			if err := ctx.SaveUploadedFile(file, file.Filename); err != nil {
+				ctx.String(http.StatusBadRequest, fmt.Sprintf("upload err %s", err))
+				return
+			}
+		}
+		ctx.String(200, fmt.Sprintf("upload ok %d files", len(files)))
 	})
 	eng.Run(":8000")
 }
