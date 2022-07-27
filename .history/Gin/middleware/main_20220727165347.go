@@ -14,11 +14,11 @@ gin可以构建中间件，但它只对注册过的路由函数起作用
 gin中间件必须是一个gin.HandlerFunc类型
 */
 
-/*Next()方法
+/*Next
 
 
 
- */
+*/
 
 //定义全局中间件
 func MiddleWare() gin.HandlerFunc {
