@@ -43,7 +43,6 @@ func initDB() (err error) {
 	// 设置最大空闲连接数
 	db.SetMaxIdleConns(5)
 	return
-
 }
 
 // 插入数据
