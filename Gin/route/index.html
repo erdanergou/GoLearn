@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<body>
+    <!--
+    <form action="http://127.0.0.1:8000/test/login" method="post">
+        用户名<input type="text" placeholder="请输入用户名" name="username">
+        <br>
+        密&nbsp码:<input type="password" name="password">
+        兴&nbsp趣:<input type="checkbox" value="sing" name="hobby">唱
+        <input type="checkbox" value="jump" name="hobby">跳
+        <input type="checkbox" value="rap" name="hobby">rap
+        <input type="checkbox" value="basketball" name="hobby">篮球
+        <input type="submit" value="提交">
+    </form>
+-->
+
+    <form action="http://127.0.0.1:8000/test/uploadFile" method="post" enctype="multipart/form-data">
+      头像：
+    <input type="file" name="file" multiple>
+    <br>
+    <input type="submit" value="提交">
+    </form>
+</body>
+</html>
