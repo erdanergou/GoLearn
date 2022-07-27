@@ -14,11 +14,7 @@ gin可以构建中间件，但它只对注册过的路由函数起作用
 gin中间件必须是一个gin.HandlerFunc类型
 */
 
-/*Next()方法是重点
-
-
-
- */
+// Next()方法是重点
 
 //定义全局中间件
 func MiddleWare() gin.HandlerFunc {
@@ -44,6 +40,18 @@ func main() {
 	// {}为了代码规范
 	{
 		eng.GET("/middleware", func(ctx *gin.Context) {
+			//取值
+			value, exists := ctx.Get("req")
+			if !exists {
+				fmt.Println("req not exists")
+			}
+			fmt.Println("request: ", value)
+			// 页面接收
+			ctx.JSON(200, gin.H{"req": value})
+
+		})
+		// 根路由后定义的是局部中间件
+		eng.GET("/middleware2", MiddleWare(), func(ctx *gin.Context) {
 			//取值
 			value, exists := ctx.Get("req")
 			if !exists {
