@@ -40,7 +40,7 @@ func main() {
 	// db.AutoMigrate(&HonoraryArchives{})
 	// 查询
 	var u Person
-	var ps []Person
+	// var ps []Person
 
 	// 查询单个对象
 	// 获取第一条记录（主键升序）
@@ -58,11 +58,9 @@ func main() {
 	// fmt.Println(result.RowsAffected)
 	// db.Raw("select id,name,age from person where id = 2").Scan(&u)
 	db = db.Table("person").Model(&u)
-	where := make(map[string]interface{})
-	where["age"] = 18
-	db.Where(where).Find(&ps)
-	// fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	// db.Where()
+	fmt.Printf("%#v\n", u)
+	// fmt.Printf("%#v\n", ps)
 
 	// 查询多个对象
 	// db.Table("person").Where("id = ?", 2).Find(&ps)
@@ -86,20 +84,20 @@ func main() {
 	// db.Table("person").Model(&Person{}).Update("name", "张三")
 	// // 删除
 	// db.Delete(&u)
-	// db.Table("person").Transaction(func(tx *gorm.DB) error {
-	// 	// 在事务中执行一些 db 操作（从这里开始，您应该使用 'tx' 而不是 'db'）
-	// 	if err := tx.Create(&Person{Name: "Giraffe"}).Error; err != nil {
-	// 		// 返回任何错误都会回滚事务
-	// 		return err
-	// 	}
+	db.Table("person").Transaction(func(tx *gorm.DB) error {
+		// 在事务中执行一些 db 操作（从这里开始，您应该使用 'tx' 而不是 'db'）
+		if err := tx.Create(&Person{Name: "Giraffe"}).Error; err != nil {
+			// 返回任何错误都会回滚事务
+			return err
+		}
 
-	// 	if err := tx.Create(&Person{Name: "Lion"}).Error; err != nil {
-	// 		return err
-	// 	}
+		if err := tx.Create(&Person{Name: "Lion"}).Error; err != nil {
+			return err
+		}
 
-	// 	// 返回 nil 提交事务
-	// 	return nil
-	// })
+		// 返回 nil 提交事务
+		return nil
+	})
 	// where := make(map[string]interface{}, 10)
 	// where["id"] = 4
 	// where["age"] = 12

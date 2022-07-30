@@ -60,9 +60,9 @@ func main() {
 	db = db.Table("person").Model(&u)
 	where := make(map[string]interface{})
 	where["age"] = 18
-	db.Where(where).Find(&ps)
-	// fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	db.Where(where).Find(&)
+	fmt.Printf("%#v\n", u)
+	// fmt.Printf("%#v\n", ps)
 
 	// 查询多个对象
 	// db.Table("person").Where("id = ?", 2).Find(&ps)

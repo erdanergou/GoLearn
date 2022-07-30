@@ -62,7 +62,7 @@ func main() {
 	where["age"] = 18
 	db.Where(where).Find(&ps)
 	// fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	// fmt.Printf("%#v\n", ps)
 
 	// 查询多个对象
 	// db.Table("person").Where("id = ?", 2).Find(&ps)

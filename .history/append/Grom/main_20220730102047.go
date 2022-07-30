@@ -57,12 +57,9 @@ func main() {
 	// result := db.Table("person").First(&u)
 	// fmt.Println(result.RowsAffected)
 	// db.Raw("select id,name,age from person where id = 2").Scan(&u)
-	db = db.Table("person").Model(&u)
-	where := make(map[string]interface{})
-	where["age"] = 18
-	db.Where(where).Find(&ps)
-	// fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	db.Table("person").Model(&u).Updates(ps[0])
+	fmt.Printf("%#v\n", u)
+	// fmt.Printf("%#v\n", ps)
 
 	// 查询多个对象
 	// db.Table("person").Where("id = ?", 2).Find(&ps)

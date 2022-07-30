@@ -40,7 +40,7 @@ func main() {
 	// db.AutoMigrate(&HonoraryArchives{})
 	// 查询
 	var u Person
-	var ps []Person
+	// var ps []Person
 
 	// 查询单个对象
 	// 获取第一条记录（主键升序）
@@ -59,10 +59,10 @@ func main() {
 	// db.Raw("select id,name,age from person where id = 2").Scan(&u)
 	db = db.Table("person").Model(&u)
 	where := make(map[string]interface{})
-	where["age"] = 18
-	db.Where(where).Find(&ps)
-	// fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	where[""]
+	db.Where()
+	fmt.Printf("%#v\n", u)
+	// fmt.Printf("%#v\n", ps)
 
 	// 查询多个对象
 	// db.Table("person").Where("id = ?", 2).Find(&ps)
