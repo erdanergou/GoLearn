@@ -29,27 +29,24 @@ type HonoraryArchives struct {
 }
 
 func main() {
-	db, err := gorm.Open("mysql", "root:root@(localhost:3306)/test?charset=utf8mb4&parseTime=True&loc=Local")
-	// db, err := gorm.Open("mysql", "root:root@(localhost:3306)/manage_archives?charset=utf8mb4&parseTime=True&loc=Local")
+	// db, err := gorm.Open("mysql", "root:root@(localhost:3306)/test?charset=utf8mb4&parseTime=True&loc=Local")
+	db, err := gorm.Open("mysql", "root:root@(localhost:3306)/manage_archives?charset=utf8mb4&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err)
 	}
 	defer db.Close()
 	db.LogMode(true)
 
-	// db.AutoMigrate(&HonoraryArchives{})
+
+	db.au
 	// 查询
-	var u Person
-	var ps []Person
+	// var u Person
+	// var ps []Person
 
 	// 查询单个对象
 	// 获取第一条记录（主键升序）
 	// db.Table("person").First(&u) //先使用Table指明要操作的表
-	// db = db.Table("person").Where("age = ?", 12)
-	// db.Table("person").Where("id = ?", 2).Find(&u)
-	ps = append(ps, Person{Name: "王五", Age: 18, Id: 2})
-	ps = append(ps, Person{Name: "赵六", Age: 19, Id: 4})
-
+	// db.Table("person").Where("id = ?", 1).First(&u)
 	// 获取一条记录，没有指定排序字段
 	// db.Table("person").Take(&u)  //先使用Table指明要操作的表
 	// 获取最后一条记录（主键降序）
@@ -57,9 +54,7 @@ func main() {
 	// result := db.Table("person").First(&u)
 	// fmt.Println(result.RowsAffected)
 	// db.Raw("select id,name,age from person where id = 2").Scan(&u)
-	db.Table("person").Model(&u).Updates(ps[0])
-	fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	// fmt.Printf("%#v\n", u)
 
 	// 查询多个对象
 	// db.Table("person").Where("id = ?", 2).Find(&ps)
@@ -97,8 +92,4 @@ func main() {
 	// 	// 返回 nil 提交事务
 	// 	return nil
 	// })
-	// where := make(map[string]interface{}, 10)
-	// where["id"] = 4
-	// where["age"] = 12
-	// db.Table("person").Where(where["id"]).Delete(&u)
 }

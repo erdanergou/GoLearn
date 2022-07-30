@@ -46,8 +46,8 @@ func main() {
 	// 获取第一条记录（主键升序）
 	// db.Table("person").First(&u) //先使用Table指明要操作的表
 	// db = db.Table("person").Where("age = ?", 12)
-	// db.Table("person").Where("id = ?", 2).Find(&u)
-	ps = append(ps, Person{Name: "王五", Age: 18, Id: 2})
+	db.Table("person").Where("id = ?", 2).Find(&u)
+	ps = append(ps, Person{Name: "王五", Age: 18, Id: 3})
 	ps = append(ps, Person{Name: "赵六", Age: 19, Id: 4})
 
 	// 获取一条记录，没有指定排序字段
@@ -57,7 +57,7 @@ func main() {
 	// result := db.Table("person").First(&u)
 	// fmt.Println(result.RowsAffected)
 	// db.Raw("select id,name,age from person where id = 2").Scan(&u)
-	db.Table("person").Model(&u).Updates(ps[0])
+	db.w
 	fmt.Printf("%#v\n", u)
 	fmt.Printf("%#v\n", ps)
 

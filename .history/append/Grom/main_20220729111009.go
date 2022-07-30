@@ -14,8 +14,7 @@ type Person struct {
 	Age  int
 }
 
-type HonoraryArchives struct {
-	Id             int64  `json:"id" gorm:"primaryKey;column:id;type:bigint(20) unsigned;not null;comment:ID"`
+Id             int64  `json:"id" gorm:"primaryKey;column:id;type:bigint(20) unsigned;not null;comment:ID"`
 	Name           string `json:"name" gorm:"column:name;type:varchar(255) unsigned;default:'';not null;comment:荣誉名称"`
 	IssuingUnit    string `json:"issuingunit" gorm:"column:issuing_unit;type:varchar(255) unsigned;default:'';not null;comment:发放单位"`
 	Carrier        int64  `json:"carrier" gorm:"column:carrier;type:bigint(20) unsigned;default:0;not null;comment:载体"`
@@ -26,30 +25,24 @@ type HonoraryArchives struct {
 	Userid         int64  `json:"userid" gorm:"column:userid;type:bigint(20) unsigned;default:0;not null;comment:归属人员"`
 	Time           int64  `json:"time" gorm:"column:time;type:bigint(20) unsigned;default:0;not null;comment:创建时间"`
 	State          int    `json:"state" gorm:"column:state;type:tinyint(1) unsigned;default:1;not null;comment:状态（1：启用；2：禁用；3：删除）"`
-}
 
 func main() {
 	db, err := gorm.Open("mysql", "root:root@(localhost:3306)/test?charset=utf8mb4&parseTime=True&loc=Local")
-	// db, err := gorm.Open("mysql", "root:root@(localhost:3306)/manage_archives?charset=utf8mb4&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err)
 	}
 	defer db.Close()
 	db.LogMode(true)
-
-	// db.AutoMigrate(&HonoraryArchives{})
 	// 查询
-	var u Person
+	// var u Person
 	var ps []Person
+
+
 
 	// 查询单个对象
 	// 获取第一条记录（主键升序）
 	// db.Table("person").First(&u) //先使用Table指明要操作的表
-	// db = db.Table("person").Where("age = ?", 12)
-	// db.Table("person").Where("id = ?", 2).Find(&u)
-	ps = append(ps, Person{Name: "王五", Age: 18, Id: 2})
-	ps = append(ps, Person{Name: "赵六", Age: 19, Id: 4})
-
+	// db.Table("person").Where("id = ?", 1).First(&u)
 	// 获取一条记录，没有指定排序字段
 	// db.Table("person").Take(&u)  //先使用Table指明要操作的表
 	// 获取最后一条记录（主键降序）
@@ -57,16 +50,14 @@ func main() {
 	// result := db.Table("person").First(&u)
 	// fmt.Println(result.RowsAffected)
 	// db.Raw("select id,name,age from person where id = 2").Scan(&u)
-	db.Table("person").Model(&u).Updates(ps[0])
-	fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	// fmt.Printf("%#v\n", u)
 
 	// 查询多个对象
-	// db.Table("person").Where("id = ?", 2).Find(&ps)
+	db.Table("person").Where("id = ?", 2).Find(&ps)
 
 	// fmt.Printf("%v\n", ret.RowsAffected)
-	// fmt.Printf("%#v\n", ps)
-	// fmt.Printf("%v\n", len(ps))
+	fmt.Printf("%#v\n", ps)
+	fmt.Printf("%v\n", len(ps))
 
 	// result := map[string]interface{}{}
 	// db.Model(&Person{}).First(&result)
@@ -97,8 +88,4 @@ func main() {
 	// 	// 返回 nil 提交事务
 	// 	return nil
 	// })
-	// where := make(map[string]interface{}, 10)
-	// where["id"] = 4
-	// where["age"] = 12
-	// db.Table("person").Where(where["id"]).Delete(&u)
 }
