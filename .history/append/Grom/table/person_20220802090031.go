@@ -6,10 +6,11 @@ type Person struct {
 	Age   int    `gorm:"age" json:"age"`
 	Id    int    `gorm:"id" json:"id"`
 	Jobid int    `gorm:"jobid" `
-	Job   Job    `gorm:"foreignKey:jobid;AssociationForeignKey:id"`
+	Job   Job    `gorm:"foreignKey:jobid"`
 	Cid   int    `gorm:"cid"`
 }
 
 func (p *Person) TableName() string {
 	return "person"
 }
+qian'tao

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"gorm_now/table"
 
 	"github.com/jinzhu/gorm"
@@ -18,8 +19,8 @@ func main() {
 
 	// db.AutoMigrate(&HonoraryArchives{})
 	// 查询
-	var u table.Person
-	// var cs []table.Company
+	// var u table.Person
+	var cs []table.Company
 	// var ps []table.Person
 
 	// 使用tablename方法
@@ -31,16 +32,16 @@ func main() {
 
 	// db.First(&u, 2)
 	// 一对一模式
-	db.Model(&table.Person{}).Preload("Job").First(&u, 5)
-	// fmt.Println(u)
+	// db.Model(&table.Person{}).Preload("Job").First(&u, 5)
 
 	// 一对多，但无法打印Person的Job
-	// db.Model(&table.Company{}).Preload("Persons").Find(&cs)
+	db.Model(&table.Company{}).Preload("Persons").Find(&cs)
+	db.Model(&table.Company{}).Preload("Persons").Find(&cs)
 
-	// 链式预加载(先预加载Persons.Job)
-	// db.Model(&table.Company{}).Preload("Persons.Job").Preload("Persons").Find(&cs)
 
-	// fmt.Println(cs)
+	// 链式预加载
+	
+	fmt.Println(cs)
 	// 没有定义tablename方法
 	// 查询单个对象
 	// 获取第一条记录（主键升序）

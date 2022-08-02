@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"gorm_now/table"
 
 	"github.com/jinzhu/gorm"
@@ -32,7 +33,7 @@ func main() {
 	// db.First(&u, 2)
 	// 一对一模式
 	db.Model(&table.Person{}).Preload("Job").First(&u, 5)
-	// fmt.Println(u)
+	fmt.Println(u)
 
 	// 一对多，但无法打印Person的Job
 	// db.Model(&table.Company{}).Preload("Persons").Find(&cs)
