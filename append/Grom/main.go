@@ -1,7 +1,8 @@
 package main
 
 import (
-	"gorm_now/table"
+	"fmt"
+	"gorm_now/mytable"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -15,14 +16,15 @@ func main() {
 	}
 	defer db.Close()
 	db.LogMode(true)
-
 	// db.AutoMigrate(&HonoraryArchives{})
 	// 查询
-	var u table.Person
-	// var cs []table.Company
-	// var ps []table.Person
+	// var u mytable.Person
 
-	// 使用tablename方法
+	var cs []mytable.Company
+	// var ps []mytable.Person
+	// var c mytable.Company
+
+	// 使用TableName方法
 	// db.Model(&u).Where("id = ?", 2).First(&u)
 
 	// db.Select("name").Where("id = ?", 2).First(&u)
@@ -31,16 +33,21 @@ func main() {
 
 	// db.First(&u, 2)
 	// 一对一模式
-	db.Model(&table.Person{}).Preload("Job").First(&u, 5)
+	// db.Model(&mytable.Person{}).Preload("Job").First(&u, 5)
 	// fmt.Println(u)
 
 	// 一对多，但无法打印Person的Job
-	// db.Model(&table.Company{}).Preload("Persons").Find(&cs)
-
-	// 链式预加载(先预加载Persons.Job)
-	// db.Model(&table.Company{}).Preload("Persons.Job").Preload("Persons").Find(&cs)
-
+	// db.Model(&mytable.Company{}).Preload("Persons").Find(&cs)
 	// fmt.Println(cs)
+
+	// 链式预加载(先预加载Persons.Job) 
+	// db.Model(&mytable.Company{}).Preload("Persons.Job").Preload("Persons").Find(&cs)
+	// fmt.Println(cs)
+
+	//多对多
+	db.Model(&mytable.Company{}).Preload("Jobs").Find(&cs)
+	fmt.Println(cs)
+
 	// 没有定义tablename方法
 	// 查询单个对象
 	// 获取第一条记录（主键升序）
