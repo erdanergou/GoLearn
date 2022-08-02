@@ -18,6 +18,14 @@ func newPerson(name string, age int) *person {
 	}
 }
 
+func init() {
+	fmt.Println("我是第一个初始化函数")
+}
+
+func init() {
+	fmt.Println("我是第二个初始化函数")
+}
+
 func main() {
 	p1 := newPerson("张三", 18)
 	p2 := newPerson("李四", 18)

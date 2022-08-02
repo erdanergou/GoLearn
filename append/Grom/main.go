@@ -3,16 +3,11 @@ package main
 import (
 	"fmt"
 
+	"gorm_now/table"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
-
-// Person 用户信息
-type Person struct {
-	Id   int
-	Name string
-	Age  int
-}
 
 type HonoraryArchives struct {
 	Id             int64  `json:"id" gorm:"primaryKey;column:id;type:bigint(20) unsigned;not null;comment:ID"`
@@ -39,9 +34,21 @@ func main() {
 
 	// db.AutoMigrate(&HonoraryArchives{})
 	// 查询
-	var u Person
-	var ps []Person
+	var u table.Person
 
+	// var ps []Person
+
+	// 使用tablename方法
+	// db.Model(&u).Where("id = ?", 2).First(&u)
+
+	// db.Select("name").Where("id = ?", 2).First(&u)
+
+	// 预加载
+
+	// db.First(&u, 2)
+	db.Preload("Job").First(&u, 2)
+	fmt.Println(u)
+	// 没有定义tablename方法
 	// 查询单个对象
 	// 获取第一条记录（主键升序）
 	// db.Table("person").First(&u) //先使用Table指明要操作的表
@@ -57,12 +64,12 @@ func main() {
 	// result := db.Table("person").First(&u)
 	// fmt.Println(result.RowsAffected)
 	// db.Raw("select id,name,age from person where id = 2").Scan(&u)
-	db = db.Table("person").Model(&u)
-	where := make(map[string]interface{})
-	where["age"] = 18
-	db.Where(where).Find(&ps)
+	// db = db.Table("person").Model(&u)
+	// where := make(map[string]interface{})
+	// where["age"] = 18
+	// db.Where(where).Find(&ps)
 	// fmt.Printf("%#v\n", u)
-	fmt.Printf("%#v\n", ps)
+	// fmt.Printf("%#v\n", ps)
 
 	// 查询多个对象
 	// db.Table("person").Where("id = ?", 2).Find(&ps)

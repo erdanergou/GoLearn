@@ -8,6 +8,8 @@ import (
 
 // gin hello world
 
+// 当我们渲染的HTML文件中引用了静态文件时，我们需要在渲染页面前调用gin.Static方法。
+
 func main() {
 	// 1.创建路由
 	// 默认使用了2个中间件Logger(), Recovery()   也可以创建不适用中间件的  eng:=gin.New()
